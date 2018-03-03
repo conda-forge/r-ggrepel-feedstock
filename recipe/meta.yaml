@@ -1,4 +1,4 @@
-{% set version = '0.6.5' %}
+{% set version = '0.7.0' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,12 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ggrepel_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ggrepel/ggrepel_{{ version }}.tar.gz
-  sha256: 360ae9d199755f9e260fefbd3baba3448fad3f024f20bcd9942a862b8c41a752
+  sha256: 28187a10eb37ef0432cbdfdb39829096c61b0d413db021c8113b87f34c75183c
 
 build:
   number: 0
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
@@ -26,17 +25,16 @@ requirements:
   build:
     - r-base
     - r-rcpp
-    - r-ggplot2 >=2.0.0
+    - r-ggplot2 >=2.2.0
     - r-scales >=0.3.0
     - posix                # [win]
     - {{native}}toolchain  # [win]
     - gcc                  # [not win]
 
   run:
-    - libgcc  # [not win]
     - r-base
     - r-rcpp
-    - r-ggplot2 >=2.0.0
+    - r-ggplot2 >=2.2.0
     - r-scales >=0.3.0
     - libgcc  # [not win]
 
@@ -48,13 +46,16 @@ test:
 about:
   home: http://github.com/slowkow/ggrepel
   license: GPL-3
-  summary: ' Provides text and label geoms for ''ggplot2'' that help to avoid overlapping text
-    labels. Labels repel away from each other and away from the data points.'
-
+  summary: Provides text and label geoms for 'ggplot2' that help to avoid overlapping text labels.
+    Labels repel away from each other and away from the data points.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
+    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
+    - jdblischak
