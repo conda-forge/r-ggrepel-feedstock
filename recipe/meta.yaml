@@ -1,4 +1,4 @@
-{% set version = '0.7.0' %}
+{% set version = "0.8.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ggrepel_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ggrepel/ggrepel_{{ version }}.tar.gz
-  sha256: 28187a10eb37ef0432cbdfdb39829096c61b0d413db021c8113b87f34c75183c
+  sha256: 6386606e716d326354a29fcb6cd09f9b3d3b5e7c5ba0d5f7ff35416b1a4177d4
 
 build:
   number: 0
