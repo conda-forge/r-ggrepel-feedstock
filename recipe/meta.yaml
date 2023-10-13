@@ -1,4 +1,4 @@
-{% set version = "0.9.3" %}
+{% set version = "0.9.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggrepel_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggrepel/ggrepel_{{ version }}.tar.gz
-  sha256: b9eba0e2edee84db0276b49e4834b65f5369edc4bc56f4cacc13e0d1c39a005c
+  sha256: 81abb47270593709587480ffbc88dce3d3f695bd6f1164729311b37c50d7cf3e
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
