@@ -1,6 +1,5 @@
 {% set version = "0.9.5" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-ggrepel
@@ -13,8 +12,7 @@ source:
   sha256: d1e600e56c2ad345961ed23f30f04b81c631ff94bd6762a260c62e0206cf8caa
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -28,7 +26,9 @@ requirements:
     - r-ggplot2                  # [build_platform != target_platform]
     - r-rlang                    # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -44,7 +44,6 @@ requirements:
     - r-scales >=0.5.0
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-rcpp
     - r-ggplot2 >=2.2.0
     - r-rlang >=0.3.0
