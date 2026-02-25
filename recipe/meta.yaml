@@ -24,10 +24,11 @@ build:
 requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - r-scales                   # [build_platform != target_platform]
     - r-rcpp                     # [build_platform != target_platform]
+    - r-s7                       # [build_platform != target_platform]
     - r-ggplot2                  # [build_platform != target_platform]
     - r-rlang                    # [build_platform != target_platform]
+    - r-scales                   # [build_platform != target_platform]
     - r-withr                    # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ stdlib("c") }}                # [not win]
@@ -41,19 +42,21 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
   host:
-    - r-base
+    - r-base >=4.5
     - r-rcpp
-    - r-ggplot2 >=2.2.0
-    - r-rlang >=0.3.0
-    - r-scales >=0.5.0
-    - r-withr >=2.5.0
+    - r-s7
+    - r-ggplot2 >=3.5.2
+    - r-rlang >=1.1.6
+    - r-scales >=1.4.0
+    - r-withr >=3.0.2
   run:
-    - r-base
+    - r-base >=4.5
     - r-rcpp
-    - r-ggplot2 >=2.2.0
-    - r-rlang >=0.3.0
-    - r-scales >=0.5.0
-    - r-withr >=2.5.0
+    - r-s7
+    - r-ggplot2 >=3.5.2
+    - r-rlang >=1.1.6
+    - r-scales >=1.4.0
+    - r-withr >=3.0.2
 
 test:
   commands:
@@ -62,6 +65,7 @@ test:
 
 about:
   home: http://github.com/slowkow/ggrepel
+  dev_url: https://github.com/slowkow/ggrepel
   license: GPL-3.0-only
   summary: Provides text and label geoms for 'ggplot2' that help to avoid overlapping text labels. Labels repel away from each other and away from the data points.
   license_family: GPL3
