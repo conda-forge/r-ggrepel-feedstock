@@ -1,4 +1,4 @@
-{% set version = "0.9.6" %}
+{% set version = "0.9.7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggrepel_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggrepel/ggrepel_{{ version }}.tar.gz
-  sha256: 268a6eda6377d27b403af40423cdf6dce30b2fe1460f771377dc68ce3e4e7212
+  sha256: 6d51e597ff7a583dacae331be711703169f0e9988926f381ce25636c3a12c237
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
